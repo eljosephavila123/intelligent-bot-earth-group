@@ -1,0 +1,395 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar" href="/">
+            <div class="col-md-8 col-md-offset-2">
+                <img src="../static/img/logo_earth.png" style="max-width: 50%;">
+            </  div>
+        </a>
+    </nav>
+</div>
+
+
+
+<!-- Nav tabs -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="programs-tab" data-toggle="tab" href="#programs" role="tab"
+            aria-controls="programs" aria-selected="true">Programs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="seminar-tab" data-toggle="tab" href="#seminar" role="tab" aria-controls="seminar"
+            aria-selected="false">Seminar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="symposium-tab" data-toggle="tab" href="#symposium" role="tab" aria-controls="symposium"
+            aria-selected="false">Symposium</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="congress-tab" data-toggle="tab" href="#congress" role="tab" aria-controls="congress"
+            aria-selected="false">Congress</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses"
+            aria-selected="false">Courses</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="conferences-tab" data-toggle="tab" href="#conferences´" role="tab"
+            aria-controls="conferences" aria-selected="false">Conferences</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="diploma-tab" data-toggle="tab" href="#diploma" role="tab" aria-controls="diploma"
+            aria-selected="false">Diploma</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="certificate-tab" data-toggle="tab" href="#certificate" role="tab"
+            aria-controls="certificate" aria-selected="false">Certificate</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="talk-tab" data-toggle="tab" href="#talk" role="tab" aria-controls="talk"
+            aria-selected="false">Talk</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="webinar-tab" data-toggle="tab" href="#webinar" role="tab" aria-controls="webinar"
+            aria-selected="false">Webinar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="workshops-tab" data-toggle="tab" href="#workshop" role="tab" aria-controls="workshop"
+            aria-selected="false">Workshops </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="colloquium-tab" data-toggle="tab" href="#colloquium" role="tab"
+            aria-controls="colloquium" aria-selected="false">Colloquium</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="intership-tab" data-toggle="tab" href="#intership" role="tab" aria-controls="intership"
+            aria-selected="false">Intership</a>
+    </li>
+
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="programs" role="tabpanel" aria-labelledby="programs-tab">
+
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in programs %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="tab-pane" id="seminar" role="tabpanel" aria-labelledby="semminar-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in seminars %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="symposium" role="tabpanel" aria-labelledby="symposium-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in symposiums %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="congress" role="tabpanel" aria-labelledby="congress-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in congress %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in courses %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="conferences" role="tabpanel" aria-labelledby="conferences-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in conferences %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="diploma" role="tabpanel" aria-labelledby="diploma-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in diplomas %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="certificate" role="tabpanel" aria-labelledby="certificate-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in certificates %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="talk" role="tabpanel" aria-labelledby="talk-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in talks %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="webinar" role="tabpanel" aria-labelledby="webinar-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in webinars %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="workshop" role="tabpanel" aria-labelledby="workshop-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in workshops %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="colloquium" role="tabpanel" aria-labelledby="colloquium-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in colloquiums %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="intership" role="tabpanel" aria-labelledby="intership-tab">
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Language</th>
+                </tr>
+            </thead>
+            {% for result in  interships %}
+            <tbody>
+                <tr>
+                    <td>{{result["title"]}}</td>
+                    <td>{{result["text"]}}</td>
+                    <td><a href={{ result["link"] }}>Link</a> </td>
+                    <td>English</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div>
+{% endblock %}

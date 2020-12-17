@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/search">
+        <img src="" width="30" height="30" alt="" loading="lazy">
+    </a>
+</nav>
+<div class="container landing-page" style="text-align: center">
+    <div class="row" style="padding-top: 100px">
+        <div class="col-md-8 col-md-offset-2">
+
+            <img src="../static/img/owl.png" style="max-width: 85%;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form action="/search" method="GET">
+                <div class="form-group row" style="margin-top: 20px;">
+                    <div class="col-md-12">
+                        <input id="autocomplete" class="form-control input-lg" name="query" autofocus required
+                            list="anrede">
+                        <datalist id="anrede">
+
+                        </datalist>
+                        <script>
+                            var countries = [];
+                            fetch("{{ url_for('static', filename='queries_title.json') }}")
+                                .then(res => res.json())
+                                .then(datos => {
+                                    var options = '';
+                                    for (let i of datos) {
+
+                                        options += '<option value="' + String(i.query) + '" />';
+
+                                    }
+
+                                    document.getElementById('anrede').innerHTML = options;
+
+                                });
+                        </script>
+                        <div class="suggestions"></div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <br>
+                        <button href="/search" class="btn ">Search</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

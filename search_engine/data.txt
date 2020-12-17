@@ -1,0 +1,13 @@
+programs 
+seminar 
+symposium 
+congress 
+courses
+conference 
+diploma
+certificate 
+talk 
+webinar 
+workshops 
+colloquium
+intership
