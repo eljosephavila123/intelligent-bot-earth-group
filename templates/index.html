@@ -1,11 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="/search">
-        <img src="" width="30" height="30" alt="" loading="lazy">
-    </a>
-</nav>
+
 <div class="container landing-page" style="text-align: center">
     <div class="row" style="padding-top: 100px">
         <div class="col-md-8 col-md-offset-2">
@@ -15,15 +11,23 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="mt-2 col-md-8 col-md-offset-2">
             <form action="/search" method="GET">
                 <div class="form-group row" style="margin-top: 20px;">
-                    <div class="col-md-12">
+                    <div class=" col-md-12">
+
+
+
                         <input id="autocomplete" class="form-control input-lg" name="query" autofocus required
                             list="anrede">
                         <datalist id="anrede">
 
                         </datalist>
+                      
+                       
+                        
+
+
                         <script>
                             var countries = [];
                             fetch("{{ url_for('static', filename='queries_title.json') }}")
@@ -40,15 +44,28 @@
 
                                 });
                         </script>
-                        <div class="suggestions"></div>
-                    </div>
+                       <div class="mt-2 col-md-12"></div>
+                        <div class="col-md-12">
+                            <div class="row h-100 justify-content-center align-items-center ">
+                            <div class=form-inline>
+                                <h5 class="mr-2">Start Date</h5>
+                                <input class="form-control mr-3" type="date" name="startdate" value={{before}} id="input-datapicker-notifD">
+                                <h5 class="mr-2">End Date</h5>
+                                <input class="form-control mr-3" type="date" name="enddate" value={{today}} id="input-datapicker-notifH">
+                                
+                                
 
-                    <div class="col-md-12">
-                        <br>
-                        <button href="/search" class="btn ">Search</button>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="mt-2 col-md-12"></div>
+                        <div class="col-md-12">
 
+
+                            <button href="/search" class="btn ">Search</button>
+
+                        </div>
                     </div>
-                </div>
             </form>
         </div>
     </div>

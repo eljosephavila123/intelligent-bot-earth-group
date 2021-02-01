@@ -1,4 +1,4 @@
-from .scrapper.search_engines import Bing
+from .scrapper.search_engines import Ask
 from .scrapper.search_engines.multiple_search_engines import MultipleSearchEngines, AllSearchEngines
 
 
@@ -18,7 +18,7 @@ def query_search(query):
     separte_result = []
 
     for plus in read_conteiners():
-        engine = Bing()
+        engine = Ask()
         results = engine.search(query + " " + plus, 1)
         results_querys_plus.append(results)
 
@@ -50,7 +50,7 @@ def query_searchT(query):
     separte_result = []
     keywords_search = read_conteiners()
     for plus in keywords_search:
-        engine = Bing()
+        engine =Ask()
         results = engine.search(query + " " + plus, 1)
         results_querys_plus.append(results)
     key_c = 0
