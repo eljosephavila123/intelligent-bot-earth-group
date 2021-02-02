@@ -39,7 +39,8 @@ def query_search(query):
     return dict_results
 
 
-def query_searchT(query):
+def query_searchT(query,after, before):
+    
     dict_results = {
         "programs": [], "seminar": [], "symposium": [], "congress": [], "courses": [],
         "conference": [], "diploma": [], "certificate": [], "talk": [],
@@ -51,7 +52,9 @@ def query_searchT(query):
     keywords_search = read_conteiners()
     for plus in keywords_search:
         engine =Ask()
-        results = engine.search(query + " " + plus, 1)
+        search_query=f'{query} and {plus} and free after:{after} before:{before}'
+        print(search_query)
+        results = engine.search(search_query, 1)
         results_querys_plus.append(results)
     key_c = 0
     for information in results_querys_plus:

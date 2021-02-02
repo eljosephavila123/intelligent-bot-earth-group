@@ -9,7 +9,7 @@ from datetime import date
 
 
 client = MongoClient(
-    "")
+    "mongodb://test:pusr2qZqfq1pJbR2@cluster0-shard-00-00.qmxmg.mongodb.net:27017,cluster0-shard-00-01.qmxmg.mongodb.net:27017,cluster0-shard-00-02.qmxmg.mongodb.net:27017/sophia?ssl=true&replicaSet=atlas-vb7337-shard-0&authSource=admin&retryWrites=true&w=majority")
 db = client.get_database("sophia")
 collection = db.queries
 

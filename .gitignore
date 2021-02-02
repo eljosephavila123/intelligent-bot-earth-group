@@ -7,7 +7,7 @@ media/
 settings.py
 # C extensions
 *.so
-
+./templates/src/connection_db.py
 # Distribution / packaging
 .Python
 env/

@@ -1,15 +1,11 @@
-from flask import send_from_directory
 import logging
 import sys
 import threading
 from search_engine.main import *
 from templates.src.connection_db import *
-from flask import Flask, request, render_template, redirect, url_for,session
+from flask import Flask, request, render_template, redirect, url_for,session,send_from_directory
 import os
-
 import datetime
-import os
-
 
 app = Flask(__name__)
 
@@ -33,31 +29,27 @@ def index():
     today = datetime.datetime.utcnow()
     before = today - datetime.timedelta(days=365)
     return render_template('index.html',today=today,before=before)
+
+
 @app.route('/search', methods=['GET','POST'])
 def search_query():
-   
     if request.method == 'GET':
-       
         query = request.args.get('query', '')
         today = request.args.get('startdate', '')
         before= request.args.get('enddate','')
-        
-
         try:
             results = search_database(query)
         except:
             input_new_queries(query)
-            new_query=f'{query} after:{today} before:{before}'
-            print(new_query)
-            results = query_searchT(new_query)
-
-        return render_template('search.html', programs=results["programs"], seminars=results["seminar"],
-                               symposiums=results["symposium"], congress=results["congress"],
-                               courses=results["courses"], conferences=results["conference"],
-                               diplomas=results["diploma"], certificates=results["certificate"],
-                               talks=results["talk"], webinars=results["webinar"],
-                               workshops=results["workshops"], colloquiums=results["colloquium"],
-                               interships=results["intership"] ,)
+            results = query_searchT(query,today,before)
+        return render_template('search.html', 
+        programs=results["programs"], seminars=results["seminar"],
+        symposiums=results["symposium"], congress=results["congress"],
+        courses=results["courses"], conferences=results["conference"],
+        diplomas=results["diploma"], certificates=results["certificate"],
+        talks=results["talk"], webinars=results["webinar"],
+        workshops=results["workshops"], colloquiums=results["colloquium"],
+        interships=results["intership"] ,)
 
 
 @app.route('/favicon.ico')
