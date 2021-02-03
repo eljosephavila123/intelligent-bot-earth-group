@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from bson.json_util import dumps
 from dns import resolver
 from datetime import date
-
+from htmldate import find_date
 
 client = MongoClient(
     "mongodb://test:pusr2qZqfq1pJbR2@cluster0-shard-00-00.qmxmg.mongodb.net:27017,cluster0-shard-00-01.qmxmg.mongodb.net:27017,cluster0-shard-00-02.qmxmg.mongodb.net:27017/sophia?ssl=true&replicaSet=atlas-vb7337-shard-0&authSource=admin&retryWrites=true&w=majority")
@@ -36,3 +36,10 @@ def input_new_queries(query):
     insertDa = {"date": today, "query": query}
     insertDB = collection.insert_one(insertDa)
     return "sucess insert data"
+def get_keywords_db():
+    curson = collection.find({}, {'query':1})
+    list_cur = list(curson)
+    keywords_search=[key['query'] for key in list_cur]
+    return keywords_search
+    
+

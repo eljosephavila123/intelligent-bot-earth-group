@@ -28,8 +28,11 @@ except:
 def index():
     today = datetime.datetime.utcnow()
     before = today - datetime.timedelta(days=365)
-    return render_template('index.html',today=today,before=before)
+    return render_template('index.html',today=today,before=before, keywords=get_keywords_db())
 
+@app.route('/keywords',methods=['GET'])
+def get_keywords():
+    return ''
 
 @app.route('/search', methods=['GET','POST'])
 def search_query():
@@ -56,7 +59,14 @@ def search_query():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-
+"""
+results = query_searchT('tortuosity','2020-01-01','2021-01-01')
+programs=results["programs"]
+print(programs)
+newlist = sorted(programs, key=lambda k: k['datetime']) 
+print(newlist)
+"""
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8002)
+
+
