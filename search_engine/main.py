@@ -67,43 +67,11 @@ def query_searchT(query,after, before):
     key_c = 0
     for information in results_querys_plus:
         for item in information:
-            datetime=validate_date(item["link"])
-            dict_results[keywords_search[key_c]].append(
-                {"title": item["title"], "link": item["link"], "text": item["text"],"datetime":datetime})
-        key_c += 1
-    return dict_results
-
-
-def query_search2(query):
-    dict_results = {
-        "programs": [], "seminar": [], "symposium": [], "congress": [], "courses": [],
-        "conference": [], "diploma": [], "certificate": [], "talk": [],
-        "webinar": [], "workshops": [], "colloquium": [], "intership": [],
-
-    }
-    results_querys_plus = []
-    separte_result = []
-    keywords_search = read_conteiners()
-    for plus in keywords_search:
-        engine =Ask()
-        search_query=f'{query} and {plus} and free after:2020-01-01 before:2021-01-01'
-        results = engine.search(search_query, 20)
-        results_querys_plus.append(results)
-    key_c = 0
-    for information in results_querys_plus:
-        for item in information:
-            datatime=find_date(item["link"]) if find_date(item["link"]) else ""
-            print(datatime)
+            #datetime=validate_date(item["link"])
             dict_results[keywords_search[key_c]].append(
                 {"title": item["title"], "link": item["link"], "text": item["text"]})
         key_c += 1
     return dict_results
-"""
-file_keywords = open("search_engine/keywords.txt", "r")
-for query in file_keywords:
-    results = query_search(query.strip())
-    insertDa = {"query": query.strip(), "results": results}
-    insertDB = collection.insert_one(insertDa)
-    print("----change----")
-curson = collection.find({"query": "Earth observation"})
-list_cur = list(curson)"""
+
+
+
