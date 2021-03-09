@@ -59,14 +59,8 @@ def search_query():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-"""
-results = query_searchT('tortuosity','2020-01-01','2021-01-01')
-programs=results["programs"]
-print(programs)
-newlist = sorted(programs, key=lambda k: k['datetime']) 
-print(newlist)
-"""
+
 if __name__ == '__main__':
-    app.run(debug=True, port=8002)
+    app.run()
 
 
